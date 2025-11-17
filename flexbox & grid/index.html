@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DaiLam</title>
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: black;
+            color: lightgreen;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        /* Navigation - using Flexbox */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1a1a1a;
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .menu a {
+            color: lightgreen;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Content */
+        h1 {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Grid Items (Cards) */
+        .card {
+            background-color: #1a1a1a;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-bottom: 15px;
+        }
+
+        /* Responsive - Stack cards on small screens */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+
+            .menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">DaiLam</div>
+        <ul class="menu">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Lam</a></li>
+            <li><a href="#contact">Contact Lam</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Heading -->
+    <h1>Hello welcome to my website</h1>
+
+    <!-- Grid Container with Cards -->
+    <div class="grid-container">
+        
+        <div class="card">
+            <h2>Card 1</h2>
+            <p>This is the first card. Grid makes it easy for me to create layouts!</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 2</h2>
+            <p>This is the second card. Grid automatically spaces them evenly.</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 3</h2>
+            <p>This is the third card. You can try resizing the window to see it adapt!</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 4</h2>
+            <p>Grid can hold as many items as I want.</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 5</h2>
+            <p>I try to keep the layout stays organized and clean.</p>
+        </div>
+
+        <div class="card">
+            <h2>Card 6</h2>
+            <p>Hehe that is my work. I'm happy</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
