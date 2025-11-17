@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lam's Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .calculator {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #f9f9f9;
+        }
+
+        .input-group {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 8px 12px;
+            font-size: 16px;
+            margin: 2px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background: white;
+        }
+
+        button:hover {
+            background: #f0f0f0;
+        }
+
+        .calculate-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 10px;
+        }
+
+        .calculate-btn:hover {
+            background: #45a049;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            font-size: 16px;
+            width: 60px;
+            text-align: center;
+            margin: 0 5px;
+        }
+
+        select {
+            padding: 8px;
+            font-size: 16px;
+            margin: 0 10px;
+        }
+
+        .result {
+            margin-top: 15px;
+            padding: 10px;
+            background: white;
+            border: 1px solid #ddd;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lam's Calculator</h1>
+    
+    <div class="calculator">
+        <div class="input-group">
+            <button onclick="decrement('num1')">▼</button>
+            <input type="number" id="num1" value="10">
+            <button onclick="increment('num1')">▲</button>
+
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+
+            <button onclick="decrement('num2')">▼</button>
+            <input type="number" id="num2" value="10">
+            <button onclick="increment('num2')">▲</button>
+
+            <button class="calculate-btn" onclick="calculate()">Result</button>
+        </div>
+
+        <div class="result" id="result">Result: </div>
+    </div>
+
+    <script>
+        function increment(id) {
+            const input = document.getElementById(id);
+            input.value = parseFloat(input.value || 0) + 1;
+        }
+
+        function decrement(id) {
+            const input = document.getElementById(id);
+            input.value = parseFloat(input.value || 0) - 1;
+        }
+
+        function calculate() {
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const operator = document.getElementById('operator').value;
+            let result;
+
+            if (isNaN(num1) || isNaN(num2)) {
+                document.getElementById('result').textContent = 'Error: Invalid input';
+                return;
+            }
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 === 0) {
+                        document.getElementById('result').textContent = 'Error: Cannot divide by zero';
+                        return;
+                    }
+                    result = num1 / num2;
+                    break;
+            }
+
+            document.getElementById('result').textContent = `Result: ${num1} ${operator} ${num2} = ${result}`;
+        }
+    </script>
+</body>
+</html>
