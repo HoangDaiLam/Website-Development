@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Handling.</title>
+</head>
+<body>
+    <h1>Count 'L' in a word.</h1>
+    <input type="text" id="t1-w" placeholder="Enter a word or phrase to check">
+    <button type="button" onclick="Task1()">Check</button>
+    <p id ="t1"></p>
+
+    <br>
+    <h1>Count vowels in a word.</h1>
+    <input type="text" id="t2-w" placeholder="Enter a word or phrase to check">
+    <button type="button" onclick="Task2()">Check</button>
+    <p id ="t2"></p>
+
+    <br>
+    <h1>Check Palindrome.</h1>
+    <input type="text" id="t3-w" placeholder="Enter a word or phrase to check">
+    <button type="button" onclick="Task3()">Check</button>
+    <p id ="t3"></p>
+
+
+    <script>
+        function Task1(){
+            //Task 1
+            let text1 = document.getElementById("t1-w").value;
+            let count = (text1.match(/l/gi) || []).length;   //g is for global goes for all the number rather than stopping after one match and "i" is case-sensative
+            document.getElementById("t1").innerText = text1 + " contains " + count +"xL characters.";
+        }
+
+        function Task2(){
+            //Task 2
+            let text2 = document.getElementById("t2-w").value; 
+            let vowels = (text2.match(/[aeiouyåäö]/gi) || []).length;
+            document.getElementById("t2").innerText = text2 + " contains " + vowels +"vowels.";
+        } 
+
+        function Task3(){
+            //Task 3
+            let text3 = document.getElementById("t3-w").value; 
+            let normal = text3.toLowerCase().replace(/[^a-zöäå]/gi, ""); //changes the input to lowercase and exclused any special char
+            let reversed = normal.split("").reverse().join(""); //split: turns string to array; reverse: flips array back; .join: makes the array a string
+
+            if (normal === reversed){ 
+                document.getElementById("t3").innerText = text3 + " is Palindrome.";
+            }
+            else{ 
+                document.getElementById("t3").innerText = text3 + " is not Palindrome.";
+            }
+        } 
+    </script>
+</body>
+</html>
